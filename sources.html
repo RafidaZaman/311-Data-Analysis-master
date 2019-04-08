@@ -1,0 +1,713 @@
+<html lang="en">
+<head>
+    <title>311 City Comparison</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.min.js"> </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+
+
+    <style>
+        /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
+        /* Set gray background color and 100% height */
+        /* Set gray background color and 100% height */
+
+
+        /* Set gray background color and 100% height */
+        .sidenav {
+            height: 100%;
+            position: fixed;
+            width: 200px;
+            overflow-y: scroll;
+            top: 0;
+            bottom: 0;
+        }
+
+        /* Set black background color, white text and some padding */
+        footer {
+            background-color: #555;
+            color: white;
+            padding: 15px;
+        }
+
+        /* On small screens, set height to 'auto' for sidenav and grid */
+        @media screen and (max-width: 767px) {
+            .sidenav {
+                height: auto;
+                padding: 15px;
+            }
+            .row.content {height: auto;}
+        }
+        .container1{
+            margin-left: 15%;
+        }
+        .list1{
+            color : #e7711b
+        }
+
+        .table{
+            color : #e7711b
+        }
+
+        .page-header{
+            color : rgba(22, 11, 11, 0.26)
+        }
+        .main_table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        .main_table td, th {
+            text-align: center;
+            padding-left: 38px;
+        }
+        .main_table th{
+            padding-left: 36px;
+        }
+        .main_table tr:hover {background-color: rgba(30, 10, 10, 0.18);}
+    </style>
+
+</head>
+<body data-ng-app ="app" ng-controller="MinCtrl">
+<div class="container-fluid">
+    <div class="row content">
+        <div class="col-sm-3 sidenav">
+            <br>
+            <button onclick="window.location.href='https://311-data-analysis.azurewebsites.net'" class="btn btn-success">Go Home</button>
+            <h3 class="text-success" style="color : #e7711b">Source of Calls</h3>
+            <ul class="nav nav-pills nav-stacked list1">
+                <li class="active"><a data-toggle="pill" href="#home">Home</a></li>
+                <li><a data-toggle="pill" href="#Kansas_City" data-ng-click="kcfunction()">Kansas City</a></li>
+                <li><a data-toggle="pill" href="#austin" data-ng-click="aufunction()">Austin, TX</a></li>
+                <li><a data-toggle="pill" href="#boston" data-ng-click="bsfunction()">Boston, MA</a></li>
+                <li><a data-toggle="pill" href="#oakland" data-ng-click="oakfunction()">Oakland, CA</a></li>
+                <li><a data-toggle="pill" href="#los_Angeles" data-ng-click="losangeles()">Los Angeles, CA</a></li>
+                <li><a data-toggle="pill" href="#san_Francisco" data-ng-click="sffunction()">San Francisco, CA</a></li>
+            </ul>
+            <br>
+        </div>
+        <div class="col-sm-9 container1">
+            <div class="tab-content">
+
+                <div id="home" class="tab-pane fade in active container-fluid text-center">
+                    HOME
+                </div>
+                <!--Kansas city-->
+                <div id="Kansas_City" class="tab-pane fade">
+                    <div class="row">
+                        <h2 class="page-header text-center text-primary">Kansas City</h2>
+                        <div class="text-center">
+                            <div class="col-md-10 col-md-offset-1">
+                                <table class="table table-primary table-bodered text-primary text-center main_table" >
+                                    <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th >2010</th>
+                                        <th >2011</th>
+                                        <th >2012</th>
+                                        <th >2013</th>
+                                        <th >2014</th>
+                                        <th >2015</th>
+                                        <th >2016</th>
+                                        <th >2017</th>
+                                        <th >2018</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <th>Phone</th>
+                                        <td>{{kc_phone_2010}}</td>
+                                        <td>{{kc_phone_2011}}</td>
+                                        <td>{{kc_phone_2012}}</td>
+                                        <td>{{kc_phone_2013}}</td>
+                                        <td>{{kc_phone_2014}}</td>
+                                        <td>{{kc_phone_2015}}</td>
+                                        <td>{{kc_phone_2016}}</td>
+                                        <td>{{kc_phone_2017}}</td>
+                                        <td>{{kc_phone_2018}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Web</th>
+                                        <td>{{kc_web_2010}}</td>
+                                        <td>{{kc_web_2011}}</td>
+                                        <td>{{kc_web_2012}}</td>
+                                        <td>{{kc_web_2013}}</td>
+                                        <td>{{kc_web_2014}}</td>
+                                        <td>{{kc_web_2015}}</td>
+                                        <td>{{kc_web_2016}}</td>
+                                        <td>{{kc_web_2017}}</td>
+                                        <td>{{kc_web_2018}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Email</th>
+                                        <td>{{kc_email_2010}}</td>
+                                        <td>{{kc_email_2011}}</td>
+                                        <td>{{kc_email_2012}}</td>
+                                        <td>{{kc_email_2013}}</td>
+                                        <td>{{kc_email_2014}}</td>
+                                        <td>{{kc_email_2015}}</td>
+                                        <td>{{kc_email_2016}}</td>
+                                        <td>{{kc_email_2017}}</td>
+                                        <td>{{kc_email_2018}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Fax</th>
+                                        <td>{{kc_fax_2010}}</td>
+                                        <td>{{kc_fax_2011}}</td>
+                                        <td>{{kc_fax_2012}}</td>
+                                        <td>{{kc_fax_2013}}</td>
+                                        <td>{{kc_fax_2014}}</td>
+                                        <td>{{kc_fax_2015}}</td>
+                                        <td>{{kc_fax_2016}}</td>
+                                        <td>{{kc_fax_2017}}</td>
+                                        <td>{{kc_fax_2018}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Walk</th>
+                                        <td>{{kc_walk_2010}}</td>
+                                        <td>{{kc_walk_2011}}</td>
+                                        <td>{{kc_walk_2012}}</td>
+                                        <td>{{kc_walk_2013}}</td>
+                                        <td>{{kc_walk_2014}}</td>
+                                        <td>{{kc_walk_2015}}</td>
+                                        <td>{{kc_walk_2016}}</td>
+                                        <td>{{kc_walk_2017}}</td>
+                                        <td>{{kc_walk_2018}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Mail</th>
+                                        <td>{{kc_mail_2010}}</td>
+                                        <td>{{kc_mail_2011}}</td>
+                                        <td>{{kc_mail_2012}}</td>
+                                        <td>{{kc_mail_2013}}</td>
+                                        <td>{{kc_mail_2014}}</td>
+                                        <td>{{kc_mail_2015}}</td>
+                                        <td>{{kc_mail_2016}}</td>
+                                        <td>{{kc_mail_2017}}</td>
+                                        <td>{{kc_mail_2018}}</td>
+                                    </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="image1">
+                        <div id="kc_chart1" style="margin-left: 10px"></div>
+                    </div>
+                    <div class="image1">
+                        <div id="kc_chart2" style="margin-left: 10px"></div>
+                    </div>
+                </div>
+
+                <!--Austin, TX-->
+                <div id="austin" class="tab-pane fade ">
+                    <div class="row">
+                        <h2 class="page-header text-center text-primary">Austin City</h2>
+                        <div class="text-center">
+                            <div class="col-md-10 col-md-offset-1">
+                                <table class="table table-primary table-bodered text-primary text-center main_table">
+                                    <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th >2014</th>
+                                        <th >2015</th>
+                                        <th >2016</th>
+                                        <th >2017</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <th>Phone</th>
+                                        <td>{{au_phone_2014}}</td>
+                                        <td>{{au_phone_2015}}</td>
+                                        <td>{{au_phone_2016}}</td>
+                                        <td>{{au_phone_2017}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>spot 311 Interface</th>
+                                        <td>{{au_spot_311_Interface_2014}}</td>
+                                        <td>{{au_spot_311_Interface_2015}}</td>
+                                        <td>{{au_spot_311_Interface_2016}}</td>
+                                        <td>{{au_spot_311_Interface_2017}}</td>
+                                    </tr>
+
+                                    <tr>
+                                        <th>Email</th>
+                                        <td>{{au_email_2014}}</td>
+                                        <td>{{au_email_2015}}</td>
+                                        <td>{{au_email_2016}}</td>
+                                        <td>{{au_email_2017}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Field Request</th>
+                                        <td>{{au_field_request_2014}}</td>
+                                        <td>{{au_field_request_2015}}</td>
+                                        <td>{{au_field_request_2016}}</td>
+                                        <td>{{au_field_request_2017}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Web</th>
+                                        <td>{{au_web_2014}}</td>
+                                        <td>{{au_web_2015}}</td>
+                                        <td>{{au_web_2016}}</td>
+                                        <td>{{au_web_2017}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Mass Entry</th>
+                                        <td>{{au_mass_entry_2014}}</td>
+                                        <td>{{au_mass_entry_2015}}</td>
+                                        <td>{{au_mass_entry_2016}}</td>
+                                        <td>0</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Fax</th>
+                                        <td>0</td>
+                                        <td>{{au_fax_2015}}</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Mail</th>
+                                        <td>{{au_mail_2014}}</td>
+                                        <td>0</td>
+                                        <td>{{au_mail_2016}}</td>
+                                        <td>0</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Open 311</th>
+                                        <td>0</td>
+                                        <td>{{au_open_311_2015}}</td>
+                                        <td>{{au_open_311_2016}}</td>
+                                        <td>{{au_open_311_2017}}</td>
+                                    </tr>
+
+
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="image1">
+                        <div id="au_chart1" style="margin-left: 10px"></div>
+                    </div>
+                    <div class="image1">
+                        <div id="au_chart2" style="margin-left: 10px"></div>
+                    </div>
+                </div>
+                
+                <!--San Francisco, CA-->
+                <div id="san_Francisco" class="tab-pane fade ">
+                    <div class="row">
+                        <h2 class="page-header text-center text-primary">San Francisco</h2>
+                        <div class="text-center">
+                            <div class="col-md-10 col-md-offset-1">
+                                <table class="table table-primary table-bodered text-primary text-center main_table" >
+                                    <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th >2012</th>
+                                        <th >2013</th>
+                                        <th >2014</th>
+                                        <th >2015</th>
+                                        <th >2016</th>
+                                        <th >2017</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <th>Phone</th>
+                                        <td>{{sf_phone_2012}}</td>
+                                        <td>{{sf_phone_2013}}</td>
+                                        <td>{{sf_phone_2014}}</td>
+                                        <td>{{sf_phone_2015}}</td>
+                                        <td>{{sf_phone_2016}}</td>
+                                        <td>{{sf_phone_2017}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Integrated Agency</th>
+                                        <td>{{sf_integrated_agency_2012}}</td>
+                                        <td>{{sf_integrated_agency_2013}}</td>
+                                        <td>{{sf_integrated_agency_2014}}</td>
+                                        <td>{{sf_integrated_agency_2015}}</td>
+                                        <td>{{sf_integrated_agency_2016}}</td>
+                                        <td>{{sf_integrated_agency_2017}}</td>
+                                    </tr>
+
+                                    <tr>
+                                        <th>Mobile/Open 311</th>
+                                        <td>{{sf_mobile_2012}}</td>
+                                        <td>{{sf_mobile_2013}}</td>
+                                        <td>{{sf_mobile_2014}}</td>
+                                        <td>{{sf_mobile_2015}}</td>
+                                        <td>{{sf_mobile_2016}}</td>
+                                        <td>{{sf_mobile_2017}}</td>
+
+                                    </tr>
+                                    <tr>
+                                        <th>Twitter</th>
+                                        <td>{{sf_twitter_2012}}</td>
+                                        <td>{{sf_twitter_2013}}</td>
+                                        <td>{{sf_twitter_2014}}</td>
+                                        <td>{{sf_twitter_2015}}</td>
+                                        <td>{{sf_twitter_2016}}</td>
+                                        <td>{{sf_twitter_2017}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Web</th>
+                                        <td>{{sf_web_2012}}</td>
+                                        <td>{{sf_web_2013}}</td>
+                                        <td>{{sf_web_2014}}</td>
+                                        <td>{{sf_web_2015}}</td>
+                                        <td>{{sf_web_2016}}</td>
+                                        <td>{{sf_web_2017}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Other Department</th>
+                                        <td>0</td>
+                                        <td>{{sf_other_department_2013}}</td>
+                                        <td>{{sf_other_department_2014}}</td>
+                                        <td>{{sf_other_department_2015}}</td>
+                                        <td>{{sf_other_department_2016}}</td>
+                                        <td>{{sf_other_department_2017}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Mail</th>
+                                        <td>0</td>
+                                        <td>{{sf_mail_2013}}</td>
+                                        <td>{{sf_mail_2014}}</td>
+                                        <td>{{sf_mail_2015}}</td>
+                                        <td>{{sf_mail_2016}}</td>
+                                        <td>0</td>
+                                    </tr>
+                                    <tr>
+                                        <th>E-Mail</th>
+                                        <td>{{sf_email_2012}}</td>
+                                        <td>{{sf_email_2013}}</td>
+                                        <td>{{sf_email_2014}}</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                        <td>{{sf_email_2017}}</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="image1">
+                        <div id="sf_chart1" style="margin-left: 10px"></div>
+                    </div>
+                    <div class="image1">
+                        <div id="sf_chart2" style="margin-left: 10px"></div>
+                    </div>
+                </div>
+
+                <!--Boston, MA-->
+                <div id="boston" class="tab-pane fade ">
+                    <div class="row">
+                        <h2 class="page-header text-center text-primary">Boston</h2>
+                        <div class="text-center">
+                            <div class="col-md-10 col-md-offset-1">
+                                <table class="table table-primary table-bodered text-primary text-center main_table" >
+                                    <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th >2011</th>
+                                        <th >2012</th>
+                                        <th >2013</th>
+                                        <th >2014</th>
+                                        <th >2015</th>
+                                        <th >2016</th>
+                                        <th >2017</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <th>Self Service</th>
+                                        <td>{{bs_self_service_2011}}</td>
+                                        <td>{{bs_self_service_2012}}</td>
+                                        <td>{{bs_self_service_2013}}</td>
+                                        <td>{{bs_self_service_2014}}</td>
+                                        <td>{{bs_self_service_2015}}</td>
+                                        <td>{{bs_self_service_2016}}</td>
+                                        <td>{{bs_self_service_2017}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Citizens Connect App</th>
+                                        <td>{{bs_citizens_connect_app_2011}}</td>
+                                        <td>{{bs_citizens_connect_app_2012}}</td>
+                                        <td>{{bs_citizens_connect_app_2013}}</td>
+                                        <td>{{bs_citizens_connect_app_2014}}</td>
+                                        <td>{{bs_citizens_connect_app_2015}}</td>
+                                        <td>{{bs_citizens_connect_app_2016}}</td>
+                                        <td>{{bs_citizens_connect_app_2017}}</td>
+                                    </tr>
+
+                                    <tr>
+                                        <th>Employeee Generated</th>
+                                        <td>{{bs_employee_generated_2011}}</td>
+                                        <td>{{bs_employee_generated_2012}}</td>
+                                        <td>{{bs_employee_generated_2013}}</td>
+                                        <td>{{bs_employee_generated_2014}}</td>
+                                        <td>{{bs_employee_generated_2015}}</td>
+                                        <td>{{bs_employee_generated_2016}}</td>
+                                        <td>{{bs_employee_generated_2017}}</td>
+
+                                    </tr>
+                                    <tr>
+                                        <th>Twitter</th>
+                                        <td>{{bs_twitter_2011}}</td>
+                                        <td>{{bs_twitter_2012}}</td>
+                                        <td>{{bs_twitter_2013}}</td>
+                                        <td>{{bs_twitter_2014}}</td>
+                                        <td>{{bs_twitter_2015}}</td>
+                                        <td>{{bs_twitter_2016}}</td>
+                                        <td>{{bs_twitter_2017}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Constituent Call</th>
+                                        <td>{{bs_constituent_call_2011}}</td>
+                                        <td>{{bs_constituent_call_2012}}</td>
+                                        <td>{{bs_constituent_call_2013}}</td>
+                                        <td>{{bs_constituent_call_2014}}</td>
+                                        <td>{{bs_constituent_call_2015}}</td>
+                                        <td>{{bs_constituent_call_2016}}</td>
+                                        <td>{{bs_constituent_call_2017}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>City Worker App</th>
+                                        <td>0</td>
+                                        <td>{{bs_city_worker_app_2012}}</td>
+                                        <td>{{bs_city_worker_app_2013}}</td>
+                                        <td>{{bs_city_worker_app_2014}}</td>
+                                        <td>{{bs_city_worker_app_2015}}</td>
+                                        <td>{{bs_city_worker_app_2016}}</td>
+                                        <td>{{bs_city_worker_app_2017}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Maximo Integration</th>
+                                        <td>{{bs_maximo_integration_2011}}</td>
+                                        <td>{{bs_maximo_integration_2012}}</td>
+                                        <td>{{bs_maximo_integration_2013}}</td>
+                                        <td>{{bs_maximo_integration_2014}}</td>
+                                        <td>{{bs_maximo_integration_2015}}</td>
+                                        <td>{{bs_maximo_integration_2016}}</td>
+                                        <td>{{bs_maximo_integration_2017}}</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="image1">
+                        <div id="bs_chart1" style="margin-left: 10px"></div>
+                    </div>
+                    <div class="image1">
+                        <div id="bs_chart2" style="margin-left: 10px"></div>
+                    </div>
+                </div>
+
+
+                <!--Oakland, CA-->
+                <div id="oakland" class="tab-pane fade ">
+                    <div class="row">
+                        <h2 class="page-header text-center text-primary">Oakland</h2>
+                        <div class="text-center">
+                            <div class="col-md-10 col-md-offset-1">
+                                <table class="table table-primary table-bodered text-primary text-center main_table" >
+                                    <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th >2013</th>
+                                        <th >2014</th>
+                                        <th >2015</th>
+                                        <th >2016</th>
+                                        <th >2017</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <th>Phone</th>
+                                        <td>{{oak_phone_2013}}</td>
+                                        <td>{{oak_phone_2014}}</td>
+                                        <td>{{oak_phone_2015}}</td>
+                                        <td>{{oak_phone_2016}}</td>
+                                        <td>{{oak_phone_2017}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>See Click Fix</th>
+                                        <td>{{oak_see_click_fix_2013}}</td>
+                                        <td>{{oak_see_click_fix_2014}}</td>
+                                        <td>{{oak_see_click_fix_2015}}</td>
+                                        <td>{{oak_see_click_fix_2016}}</td>
+                                        <td>{{oak_see_click_fix_2017}}</td>
+
+                                    </tr>
+                                    <tr>
+                                        <th>Other</th>
+                                        <td>{{oak_other_2013}}</td>
+                                        <td>{{oak_other_2014}}</td>
+                                        <td>{{oak_other_2015}}</td>
+                                        <td>{{oak_other_2016}}</td>
+                                        <td>{{oak_other_2017}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Web</th>
+                                        <td>{{oak_web_2013}}</td>
+                                        <td>{{oak_web_2014}}</td>
+                                        <td>{{oak_web_2015}}</td>
+                                        <td>{{oak_web_2016}}</td>
+                                        <td>{{oak_web_2017}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Phone/Email</th>
+                                        <td>{{oak_phone_or_email_2013}}</td>
+                                        <td>{{oak_phone_or_email_2014}}</td>
+                                        <td>{{oak_phone_or_email_2015}}</td>
+                                        <td>{{oak_phone_or_email_2016}}</td>
+                                        <td>{{oak_phone_or_email_2017}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>City Attorney</th>
+                                        <td>0</td>
+                                        <td>{{oak_city_attorney_2014}}</td>
+                                        <td>{{oak_city_attorney_2015}}</td>
+                                        <td>{{oak_city_attorney_2016}}</td>
+                                        <td>{{oak_city_attorney_2017}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>E-Mail</th>
+                                        <td>{{oak_email_2013}}</td>
+                                        <td>{{oak_email_2014}}</td>
+                                        <td>{{oak_email_2015}}</td>
+                                        <td>{{oak_email_2016}}</td>
+                                        <td>{{oak_email_2017}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Voice Mail</th>
+                                        <td>{{oak_voice_mail_2013}}</td>
+                                        <td>{{oak_voice_mail_2014}}</td>
+                                        <td>{{oak_voice_mail_2015}}</td>
+                                        <td>{{oak_voice_mail_2016}}</td>
+                                        <td>{{oak_voice_mail_2017}}</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="image1">
+                        <div id="oak_chart1" style="margin-left: 10px"></div>
+                    </div>
+                    <div class="image1">
+                        <div id="oak_chart2" style="margin-left: 10px"></div>
+                    </div>
+                </div>
+
+
+                <!--Los Angeles, CA-->
+                <div id="los_Angeles" class="tab-pane fade ">
+                    <div class="row">
+                        <h2 class="page-header text-center text-primary">Los Angeles</h2>
+                        <div class="text-center">
+                            <div class="col-md-10 col-md-offset-1">
+                                <table class="table table-primary table-bodered text-primary text-center main_table">
+                                    <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th >2015</th>
+                                        <th >2016</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <th>Phone</th>
+                                        <td>{{la_phone_2015}}</td>
+                                        <td>{{la_phone_2016}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Walk In</th>
+                                        <td>{{la_walk_in_2015}}</td>
+                                        <td>{{la_walk_in_2016}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Driver Self Report</th>
+                                        <td>{{la_driver_self_2015}}</td>
+                                        <td>{{la_driver_self_2016}}</td>
+                                    </tr>
+
+                                    <tr>
+                                        <th>Mobile</th>
+                                        <td>{{la_mobile_2015}}</td>
+                                        <td>{{la_mobile_2016}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Web</th>
+                                        <td>{{la_web_2015}}</td>
+                                        <td>{{la_web_2016}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Council's Office</th>
+                                        <td>{{la_councils_office_2015}}</td>
+                                        <td>{{la_councils_office_2016}}</td>
+                                    </tr>
+
+                                    <tr>
+                                        <th>Fax</th>
+                                        <td>{{la_fax_2015}}</td>
+                                        <td>{{la_fax_2016}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Self Service</th>
+                                        <td>{{la_self_service_2015}}</td>
+                                        <td>{{la_self_service_2016}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Mail</th>
+                                        <td>{{la_mail_2015}}</td>
+                                        <td>{{la_mail_2016}}</td>
+                                    </tr>
+
+                                    <tr>
+                                        <th>Voice Mail</th>
+                                        <td>{{la_voice_mail_2015}}</td>
+                                        <td>{{la_voice_mail_2016}}</td>
+                                    </tr>
+
+
+                                    <tr>
+                                        <th>Email</th>
+                                        <td>{{la_email_2015}}</td>
+                                        <td>{{la_email_2016}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Twitter</th>
+                                        <td>{{la_twitter_2015}}</td>
+                                        <td>{{la_twitter_2016}}</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="image1">
+                    <div id="la_chart1" style="margin-left: 10px"></div>
+                </div>
+                <div class="image1">
+                    <div id=los_chart2" style="margin-left: 10px"></div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="sources.js"></script>
+</body>
+</html>
