@@ -133,7 +133,7 @@ app.controller("MinCtrl",function ($scope,$http) {
             series: {0: { pointShape: 'circle' }},
             colors : ['#e7711b']
         };
-        var chart = new google.visualization.LineChart(document.getElementById(var8));
+        var chart = new google.visualization.LineChart(document.getElementById(var9));
         chart.draw(data, options);
     }
 });
