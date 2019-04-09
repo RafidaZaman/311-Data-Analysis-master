@@ -192,7 +192,7 @@ app.controller("MinCtrl",function ($scope,$http) {
                 $scope.mydata2015 = parseInt($scope.kcvalue[9].count_case_id);
                 $scope.mydata2016 = parseInt($scope.kcvalue[10].count_case_id);
                 $scope.mydata2017 = parseInt($scope.kcvalue[11].count_case_id);
-                drawChartx($scope.mydata2010, $scope.mydata2011, $scope.mydata2012, $scope.mydata2013, $scope.mydata2014, $scope.mydata2015, $scope.mydata2016, 'kc_chart1');
+                drawChartx($scope.mydata2010, $scope.mydata2011, $scope.mydata2012, $scope.mydata2013, $scope.mydata2014, $scope.mydata2015, $scope.mydata2016,$scope.mydata2017, 'kc_chart1');
                 drawCharty($scope.mydata2010/$scope.population[0].Kansas_City, $scope.mydata2011/$scope.population[1].Kansas_City, $scope.mydata2012/$scope.population[2].Kansas_City, $scope.mydata2013/$scope.population[3].Kansas_City, $scope.mydata2014/$scope.population[4].Kansas_City, $scope.mydata2015/$scope.population[5].Kansas_City, $scope.mydata2016/$scope.population[6].Kansas_City, 'kc_chart2');
             });
         };
@@ -850,6 +850,32 @@ app.controller("MinCtrl",function ($scope,$http) {
             "Denver" : 693060,
             "Louisville" : 616261,
             "St_Louis" : 311404
+        },
+        {
+            "Year" : 2016,
+            "Kansas_City" : 488943,
+            "NewYork_City": 8622698,
+            "Austin": 950715,
+            "Baton_Rouge": 225374,
+            "Boston" : 685094,
+            "Chattanooga": 177571,
+            "Gainesville": 132249,
+            "JohnsCreek" : 84350,
+            "Minneapolis" : 422331,
+            "New_Orleans": 393292,
+            "Philadelphia" : 1580863,
+            "Sacramento" : 501901,
+            "San_Francisco" : 884363,
+            "LosAngeles": 3999759,
+            "Cincinnati": 301301,
+            "Washington": 695691,
+            "Oakland": 425195,
+            "SantaMonica": 92306,
+            "chicago" : 2716450,
+            "Denver" : 704621,
+            "Louisville" : 616261,
+            "St_Louis" : 311404
         }
+             
     ];
 });
