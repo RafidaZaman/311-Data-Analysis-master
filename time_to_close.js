@@ -72,7 +72,7 @@ app.controller("MinCtrl",function ($scope,$http) {
         $scope.avg_days_2014 = 29;
         $scope.avg_days_2015 = 19;
         $scope.avg_days_2016 = 16;
-        $scope.avg_days_2017 = 10;
+        $scope.avg_days_2017 = 18;
         $scope.avg_days_2018 = 12;
         drawChartx($scope.avg_days_2010, $scope.avg_days_2011, $scope.avg_days_2012, $scope.avg_days_2013, $scope.avg_days_2014, $scope.avg_days_2015, $scope.avg_days_2016, $scope.avg_days_2017, $scope.avg_days_2018, 'bs_chart1');
     };
