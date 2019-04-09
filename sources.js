@@ -479,24 +479,23 @@ app.controller("MinCtrl",function ($scope,$http) {
 
     google.charts.load('current', {'packages': ['corechart']});
     google.charts.setOnLoadCallback(drawChartkc1);
-    function drawChartkc1(var0, var1 , var2, var3, var4, var5, var6, var7, var8,var9 //email
-                       var10,var11,var12,var13,var14,var15,var16,var17, var18, var19//fax
-                       var20,var21,var22,var23,var24,var25,var26,var27, var28, var29//mail
-                       var30,var31,var32,var33,var34,var35,var36,var37, var38, var39 //phone
-                       var40,var41,var42,var43,var44,var45,var46,var47,var48,var49//walk
-                       var50,var51,var52,var53,var54,var55,var56,var57,var58,var59) {//web
+    function drawChartkc1(var0, var1 , var2, var3, var4, var5, var6, var7, var8, //email
+                        var9, var10,var11,var12,var13,var14,var15,var16,var17,//fax
+                        var18,var19,var20,var21,var22,var23,var24,var25,var26,//mail
+                        var27,var28,var29,var30,var31,var32,var33,var34,var35,//phone
+                        var36,var37,var38,var39,var40,var41,var42,var43,var44,//walk
+                        var45,var46,var47,var48,var49,var50,var51,var52,var53,var54) {//web
         var data = google.visualization.arrayToDataTable([
             ['Year', 'Email','Fax','mail','phone','walk','web'],
-            ['2010', parseInt(var0),parseInt(var10),parseInt(var20),parseInt(var30),parseInt(var40),parseInt(var50)],
-            ['2011', parseInt(var1),parseInt(var11),parseInt(var21),parseInt(var31),parseInt(var41),parseInt(var51)],
-            ['2012', parseInt(var2),parseInt(var12),parseInt(var22),parseInt(var32),parseInt(var42),parseInt(var52)],
-            ['2013', parseInt(var3),parseInt(var13),parseInt(var23),parseInt(var33),parseInt(var43),parseInt(var53)],
-            ['2014', parseInt(var4),parseInt(var14),parseInt(var24),parseInt(var34),parseInt(var44),parseInt(var54)],
-            ['2015', parseInt(var5),parseInt(var15),parseInt(var25),parseInt(var35),parseInt(var45),parseInt(var55)],
-            ['2016', parseInt(var6),parseInt(var16),parseInt(var26),parseInt(var36),parseInt(var46),parseInt(var56)],
-            ['2017', parseInt(var7),parseInt(var17),parseInt(var27),parseInt(var37),parseInt(var47),parseInt(var57)],
-            ['2018', parseInt(var8),parseInt(var18),parseInt(var28),parseInt(var38),parseInt(var48),parseInt(var58)],
-            ['2019', parseInt(var9),parseInt(var19),parseInt(var29),parseInt(var39),parseInt(var49),parseInt(var59)]
+            ['2010', parseInt(var0),parseInt(var9),parseInt(var18),parseInt(var27),parseInt(var36),parseInt(var45)],
+            ['2011', parseInt(var1),parseInt(var10),parseInt(var19),parseInt(var28),parseInt(var37),parseInt(var46)],
+            ['2012', parseInt(var2),parseInt(var11),parseInt(var20),parseInt(var29),parseInt(var38),parseInt(var47)],
+            ['2013', parseInt(var3),parseInt(var12),parseInt(var21),parseInt(var30),parseInt(var39),parseInt(var48)],
+            ['2014', parseInt(var4),parseInt(var13),parseInt(var22),parseInt(var31),parseInt(var40),parseInt(var49)],
+            ['2015', parseInt(var5),parseInt(var14),parseInt(var23),parseInt(var32),parseInt(var41),parseInt(var50)],
+            ['2016', parseInt(var6),parseInt(var15),parseInt(var24),parseInt(var33),parseInt(var42),parseInt(var51)],
+            ['2017', parseInt(var7),parseInt(var16),parseInt(var25),parseInt(var34),parseInt(var43),parseInt(var52)],
+            ['2018', parseInt(var8),parseInt(var17),parseInt(var26),parseInt(var35),parseInt(var44),parseInt(var53)]
         ]);
         var options = {
             title: 'Sources ',
