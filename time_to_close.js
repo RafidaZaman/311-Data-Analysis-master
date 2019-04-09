@@ -35,7 +35,12 @@ app.controller("MinCtrl",function ($scope,$http) {
                                     $http.get("https://data.kcmo.org/resource/cyqf-nban.json?$select=avg(days_to_close)&creation_year=2017").then(function (value) {
 
                                         $scope.avg_days_2017 = Math.round(value.data[0].avg_days_to_close);
-                                        drawChartx($scope.avg_days_2010, $scope.avg_days_2011, $scope.avg_days_2012, $scope.avg_days_2013, $scope.avg_days_2014, $scope.avg_days_2015, $scope.avg_days_2016, $scope.avg_days_2017, 'kc_chart1');
+                                        
+                                        $http.get("https://data.kcmo.org/resource/cyqf-nban.json?$select=avg(days_to_close)&creation_year=2018").then(function (value) {
+
+                                            $scope.avg_days_2018 = Math.round(value.data[0].avg_days_to_close);
+                                            drawChartx($scope.avg_days_2010, $scope.avg_days_2011, $scope.avg_days_2012, $scope.avg_days_2013, $scope.avg_days_2014, $scope.avg_days_2015, $scope.avg_days_2016, $scope.avg_days_2017, $scope.avg_days_2018, 'kc_chart1');
+                                        });
                                     });
                                 });
                             });
@@ -116,7 +121,8 @@ app.controller("MinCtrl",function ($scope,$http) {
             ['2014', parseInt(var4)],
             ['2015', parseInt(var5)],
             ['2016', parseInt(var6)],
-            ['2017', parseInt(var7)]
+            ['2017', parseInt(var7)],
+            ['2018', parseInt(var7)]
         ]);
         var options = {
             title: 'Time_to_close ',
