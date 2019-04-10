@@ -33,7 +33,7 @@ app.controller("MinCtrl",function ($scope,$http) {
             ]);
 
             var options = {
-                title: 'City Comparison from 2010 to 2016',
+                title: 'City Comparison from 2010 to 2018',
                 curveType: 'none',
                 dataOpacity : 2.0,
                 pointSize: 7,
@@ -115,7 +115,7 @@ app.controller("MinCtrl",function ($scope,$http) {
 
 
             if( my.sel2 === "Kansas_City" ) {
-                drawCharty($scope.mydata2010 / $scope.population[0].Kansas_City, $scope.mydata2011 / $scope.population[1].Kansas_City, $scope.mydata2012 / $scope.population[2].Kansas_City, $scope.mydata2013 / $scope.population[3].Kansas_City, $scope.mydata2014 / $scope.population[4].Kansas_City, $scope.mydata2015 / $scope.population[5].Kansas_City, $scope.mydata2016 / $scope.population[6].Kansas_City, 'compare_chart2');
+                drawCharty($scope.mydata2010 / $scope.population[0].Kansas_City, $scope.mydata2011 / $scope.population[1].Kansas_City, $scope.mydata2012 / $scope.population[2].Kansas_City, $scope.mydata2013 / $scope.population[3].Kansas_City, $scope.mydata2014 / $scope.population[4].Kansas_City, $scope.mydata2015 / $scope.population[5].Kansas_City, $scope.mydata2016 / $scope.population[6].Kansas_City,$scope.mydata2017 / $scope.population[7].Kansas_City, 'compare_chart2');
             }
             if(my.sel2 ==="New_York"){
                 drawCharty($scope.nyc2010/$scope.population[0].NewYork_City,$scope.nyc2011/$scope.population[1].NewYork_City,$scope.nyc2012/$scope.population[2].NewYork_City,$scope.nyc2013/$scope.population[3].NewYork_City,$scope.nyc2014/$scope.population[4].NewYork_City,$scope.nyc2015/$scope.population[5].NewYork_City,$scope.nyc2016/$scope.population[6].NewYork_City,'compare_chart2');
