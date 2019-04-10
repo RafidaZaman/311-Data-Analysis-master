@@ -193,8 +193,9 @@ app.controller("MinCtrl",function ($scope,$http) {
                 $scope.mydata2015 = parseInt($scope.kcvalue[9].count_case_id);
                 $scope.mydata2016 = parseInt($scope.kcvalue[10].count_case_id);
                 $scope.mydata2017 = parseInt($scope.kcvalue[11].count_case_id);
-                drawChartx($scope.mydata2010, $scope.mydata2011, $scope.mydata2012, $scope.mydata2013, $scope.mydata2014, $scope.mydata2015, $scope.mydata2016,$scope.mydata2017, 'kc_chart1');
-                drawCharty($scope.mydata2010/$scope.population[0].Kansas_City, $scope.mydata2011/$scope.population[1].Kansas_City, $scope.mydata2012/$scope.population[2].Kansas_City, $scope.mydata2013/$scope.population[3].Kansas_City, $scope.mydata2014/$scope.population[4].Kansas_City, $scope.mydata2015/$scope.population[5].Kansas_City, $scope.mydata2016/$scope.population[6].Kansas_City,$scope.mydata2017/$scope.population[7].Kansas_City, 'kc_chart2');
+                $scope.mydata2018 = parseInt($scope.kcvalue[12].count_case_id);
+                drawChartx($scope.mydata2010, $scope.mydata2011, $scope.mydata2012, $scope.mydata2013, $scope.mydata2014, $scope.mydata2015, $scope.mydata2016,$scope.mydata2017,$scope.mydata2018, 'kc_chart1');
+                drawCharty($scope.mydata2010/$scope.population[0].Kansas_City, $scope.mydata2011/$scope.population[1].Kansas_City, $scope.mydata2012/$scope.population[2].Kansas_City, $scope.mydata2013/$scope.population[3].Kansas_City, $scope.mydata2014/$scope.population[4].Kansas_City, $scope.mydata2015/$scope.population[5].Kansas_City, $scope.mydata2016/$scope.population[6].Kansas_City,$scope.mydata2017/$scope.population[7].Kansas_City,$scope.mydata2018/$scope.population[8].Kansas_City, 'kc_chart2');
             });
         };
         //Kansas City api https://data.kcmo.org/resource/cyqf-nban.json?$select=creation_year,count(case_id)&$group=creation_year
