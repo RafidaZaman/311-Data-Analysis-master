@@ -630,7 +630,7 @@ app.controller("MinCtrl",function ($scope,$http) {
 
     google.charts.load('current', {'packages': ['corechart']});
     google.charts.setOnLoadCallback(drawChartx);
-        function drawChartx(var0, var1 , var2, var3, var4, var5, var6,var7) {
+        function drawChartx(var0, var1 , var2, var3, var4, var5, var6,var7,var8) {
             var data = google.visualization.arrayToDataTable([
                 ['Year', 'No.of Requests'],
                 ['2010', parseInt(var0)],
@@ -639,7 +639,8 @@ app.controller("MinCtrl",function ($scope,$http) {
                 ['2013', parseInt(var3)],
                 ['2014', parseInt(var4)],
                 ['2015', parseInt(var5)],
-                ['2016', parseInt(var6)]
+                ['2016', parseInt(var6)],
+                ['2017', parseInt(var7)]
             ]);
             var options = {
                 title: '311 call service requests ',
@@ -652,7 +653,7 @@ app.controller("MinCtrl",function ($scope,$http) {
             var chart = new google.visualization.ColumnChart(document.getElementById(var7));
             chart.draw(data, options);
         }
-        function drawCharty(var0, var1 , var2, var3, var4, var5, var6,var7) {
+        function drawCharty(var0, var1 , var2, var3, var4, var5, var6,var7,var8) {
             var data = google.visualization.arrayToDataTable([
                 ['Year', 'No.of requests/population Normization'],
                 ['2010', var0],
@@ -661,7 +662,8 @@ app.controller("MinCtrl",function ($scope,$http) {
                 ['2013', var3],
                 ['2014', var4],
                 ['2015', var5],
-                ['2016', var6]
+                ['2016', var6],
+                ['2017', var7]
             ]);
             var options = {
                 title: '311 call service requests Normilization ',
@@ -852,7 +854,7 @@ app.controller("MinCtrl",function ($scope,$http) {
             "St_Louis" : 311404
         },
         {
-            "Year" : 2016,
+            "Year" : 2017,
             "Kansas_City" : 488943,
             "NewYork_City": 8622698,
             "Austin": 950715,
