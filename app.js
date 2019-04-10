@@ -29,7 +29,7 @@ app.controller("MinCtrl",function ($scope,$http) {
                 ['2014',  $scope.mydata2014/$scope.population[4].Kansas_City,$scope.nyc2014/$scope.population[4].NewYork_City,$scope.au2014/$scope.population[4].Austin,0,$scope.bsvalue2014/$scope.population[4].Boston,$scope.ct2014/$scope.population[4].Chattanooga,$scope.gain2014/$scope.population[4].Gainesville],
                 ['2015',  $scope.mydata2015/$scope.population[5].Kansas_City,$scope.nyc2015/$scope.population[5].NewYork_City,$scope.au2015/$scope.population[5].Austin,0,$scope.bsvalue2015/$scope.population[5].Boston,$scope.ct2015/$scope.population[5].Chattanooga,$scope.gain2015/$scope.population[5].Gainesville],
                 ['2016',  $scope.mydata2016/$scope.population[6].Kansas_City,$scope.nyc2016/$scope.population[6].NewYork_City,$scope.au2016/$scope.population[6].Austin,$scope.ba2016/$scope.population[6].Baton_Rouge,$scope.bsvalue2016/$scope.population[6].Boston,$scope.ct2016/$scope.population[6].Chattanooga,$scope.gain2016/$scope.population[6].Gainesville],
-                ['2017',  $scope.mydata2017/$scope.population[7].Kansas_City,$scope.nyc2017/$scope.population[7].NewYork_City,$scope.au2017/$scope.population[7].Austin,$scope.ba2017/$scope.population[7].Baton_Rouge,$scope.bsvalue2017/$scope.population[7].Boston,$scope.ct2017/$scope.population[7].Chattanooga,$scope.gain2017/$scope.population[7].Gainesville]
+                ['2017',  $scope.mydata2017/$scope.population[7].Kansas_City]
             ]);
 
             var options = {
@@ -195,7 +195,7 @@ app.controller("MinCtrl",function ($scope,$http) {
                 $scope.mydata2017 = parseInt($scope.kcvalue[11].count_case_id);
                 $scope.mydata2018 = parseInt($scope.kcvalue[12].count_case_id);
                 drawChartx($scope.mydata2010, $scope.mydata2011, $scope.mydata2012, $scope.mydata2013, $scope.mydata2014, $scope.mydata2015, $scope.mydata2016,$scope.mydata2017,$scope.mydata2018, 'kc_chart1');
-                drawCharty($scope.mydata2010/$scope.population[0].Kansas_City, $scope.mydata2011/$scope.population[1].Kansas_City, $scope.mydata2012/$scope.population[2].Kansas_City, $scope.mydata2013/$scope.population[3].Kansas_City, $scope.mydata2014/$scope.population[4].Kansas_City, $scope.mydata2015/$scope.population[5].Kansas_City, $scope.mydata2016/$scope.population[6].Kansas_City,$scope.mydata2017/$scope.population[7].Kansas_City,$scope.mydata2018/$scope.population[8].Kansas_City, 'kc_chart2');
+                drawCharty($scope.mydata2010/$scope.population[0].Kansas_City, $scope.mydata2011/$scope.population[1].Kansas_City, $scope.mydata2012/$scope.population[2].Kansas_City, $scope.mydata2013/$scope.population[3].Kansas_City, $scope.mydata2014/$scope.population[4].Kansas_City, $scope.mydata2015/$scope.population[5].Kansas_City, $scope.mydata2016/$scope.population[6].Kansas_City,$scope.mydata2017/$scope.population[7].Kansas_City, 'kc_chart2');
             });
         };
         //Kansas City api https://data.kcmo.org/resource/cyqf-nban.json?$select=creation_year,count(case_id)&$group=creation_year
